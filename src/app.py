@@ -11,6 +11,8 @@ from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
 from flask_mail import Mail, Message
+from flask_cors import CORS
+
 
 # from models import Person
 
@@ -19,7 +21,7 @@ static_file_dir = os.path.join(os.path.dirname(
     os.path.realpath(__file__)), '../public/')
 app = Flask(__name__)
 app.url_map.strict_slashes = False
-
+CORS(app)
 app.config.update(dict(
     DEBUG=False,
     MAIL_SERVER='smtp.gmail.com',
@@ -93,6 +95,11 @@ def send_mail():
         '<a href="api_url/reset-password/anlks-slksd-laksdj"> Restore Password</a>'
     mail.send(msg)
     return jsonify({'msg': 'Envié el correo'}), 200
+
+
+@app.route('/holi', methods=['GET'])
+def holi():
+    return jsonify({'msg': "Holi!"})
 
 
 # this only runs if `$ python src/main.py` is executed
