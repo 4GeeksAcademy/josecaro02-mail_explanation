@@ -95,6 +95,11 @@ def send_mail():
     return jsonify({'msg': 'Envié el correo'}), 200
 
 
+@app.route('/holi', methods=['GET'])
+def holi():
+    return jsonify({'msg': "Holi!"})
+
+
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 3001))
