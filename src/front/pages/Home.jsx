@@ -9,13 +9,13 @@ export const Home = () => {
 	const loadMessage = async () => {
 
 		const backendUrl = import.meta.env.VITE_BACKEND_URL
-		alert(backendUrl)
+		//alert(backendUrl)
 
 		if (!backendUrl) throw new Error("VITE_BACKEND_URL is not defined in .env file")
 
 		const response = await fetch(backendUrl + "/api/hello")
 		const data = await response.json()
-		alert(data);
+		//alert(data);
 
 		if (response.ok) dispatch({ type: "set_hello", payload: data.message })
 
@@ -31,7 +31,7 @@ export const Home = () => {
 
 	return (
 		<div className="text-center mt-5">
-			<h1 className="display-4">Holi!!!!!</h1>
+			<h1 className="display-4">Hola desde la clase de Render!</h1>
 			<p className="lead">
 				<img src={rigoImageUrl} className="img-fluid rounded-circle mb-3" alt="Rigo Baby" />
 			</p>
